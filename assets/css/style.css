@@ -1,0 +1,23 @@
+header, footer {
+    padding: 25px 0 35px;
+    background: #fff;
+    line-height: 30px;
+    text-align:center;
+    height: 250px;
+    font-size: 3em;
+    vertical-align: baseline;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    padding: 60px;
+}
+
+.placeholder p {
+    padding: 13% 0 35px;
+    background: #fff;
+    line-height: 30px;
+    text-align:center;
+    height: 500px;
+    font-size: 3em;
+}
