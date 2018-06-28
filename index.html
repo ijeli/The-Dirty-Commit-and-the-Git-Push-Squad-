@@ -10,6 +10,8 @@
     <!--Loading our jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--Loading our parallax.js-->
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="assets/javascript/script.js"></script>
     <script src="assets/javascript/parallax.min.js"></script>
 </head>
 
@@ -19,7 +21,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent" id="nav1">
             <a class="navbar-brand" href="#">WORLD CUP 2018</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -44,12 +46,14 @@
                     <div class = "col-lg-8">
                         <h1>Current Game</h1>
                         <h2>
-                        <table style="width:100%">
+                        <table class="table table-bordered" style="width:100%">
                             <thead>
-                                <th>Team 1</th>
-                                <th>Team 2</th>
-                                <th>Score</th>
-                                <th>Winner</th>
+                                <tr>
+                                    <th scope="col">Team 1</th>
+                                    <th scope="col">Team 2</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Winner</th>
+                                </tr>
                             </thead>
                             <tbody>
                             </tbody>
@@ -82,8 +86,7 @@
     </footer>
     
 
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
-    <script src="assets/javascript/script.js"></script>
+
 </body>
 
 </html>
