@@ -16,10 +16,10 @@ $.ajax({
         console.log(results[0].winner_code);
         var tbody = $("tbody");
         var newRow = $(
-            "<tr><td>" + results[i].home_team_country + "</td><td>"
-            + results[i].away_team_country + "</td><td>" + 
+            "<tr><td>" + results[i].home_team_country + "</td><td>" + 
             results[i].home_team.goals + " || " + results[i].away_team.goals
-            + "</td><td>" + results[i].winner + "</td></tr>"
+            + "</td><td>" + results[i].away_team_country + "</td><td>" 
+            + results[i].winner + "</td></tr>"
         );
         tbody.append(newRow);
         $(".placeholder").css("background-color", "white");
