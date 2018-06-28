@@ -14,14 +14,14 @@ $.ajax({
         //console.log(results[i]);
         //console.log(results[i].venue);
         console.log(results[0].winner_code);
-        var tbody = $("tbody");
+        var tbodyCS = $("#currentScore");
         var newRow = $(
             "<tr><td>" + results[i].home_team_country + "</td><td>" + 
             results[i].home_team.goals + " || " + results[i].away_team.goals
             + "</td><td>" + results[i].away_team_country + "</td><td>" 
             + results[i].winner + "</td></tr>"
         );
-        tbody.append(newRow);
+        tbodyCS.append(newRow);
         $(".placeholder").css("background-color", "white");
     }
 
