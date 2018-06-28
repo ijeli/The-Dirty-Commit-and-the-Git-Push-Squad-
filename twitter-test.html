@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twitter Test</title>
+    <link rel= "stylesheet" href = "assets/css/reset.css" type = "text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel = "stylesheet" href="assets/css/style.css" type= "text/css"/>
+    <!--Loading our jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Loading our parallax.js-->
+    <script src="assets/javascript/parallax.min.js"></script>
+</head>
+<body>
+    
+<div id="tweet_stream">  Loading #WorldCup tweets...  </div>  
+
+<script type="text/javascript">  jQuery(function(){  // Execute this code when the page is ready to work
+    // Create a Script Tag
+     var script=document.createElement('script');
+     script.type='text/javascript';
+     script.src= "https://stream.twitter.com/1.1/statuses/filter.json?track=worldcup"+ new Date().getTime();
+    
+    // Add the Script to the Body element, which will in turn load the script and run it.
+     $("body").append(script);
+    
+    });
+    
+      
+    function processTheseTweets(jsonData){
+    
+    var shtml = '';
+     var results = jsonData.results;
+     if(results){
+    
+    // if there are results (it should be an array), loop through it with a jQuery function
+     $.each(results, function(index,value){
+     shtml += "<p class='title'><span class='author'>" + value.from_user + "</span>: " +
+     value.text + "<span class='date'>" + value.created_at + "</span></p>";
+     });
+    
+      
+    // Load the HTML in the #tweet_stream div
+     $("#tweet_stream").html( shtml );
+     }
+    
+    }
+    
+    </script>
+
+</body>
+</html>
