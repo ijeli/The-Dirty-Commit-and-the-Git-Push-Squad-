@@ -1,6 +1,6 @@
 
 var queryURL = "https://worldcup.sfg.io/matches/today";
-
+function lode() {
 $.ajax({
     url: queryURL,
     method: "GET"
@@ -22,7 +22,11 @@ $.ajax({
             + "</td><td>" + results[i].winner + "</td></tr>"
         );
         tbody.append(newRow);
+        $(".placeholder").css("background-color", "white");
     }
 
 });
+};
 
+
+lode();

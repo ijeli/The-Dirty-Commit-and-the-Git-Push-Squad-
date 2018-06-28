@@ -26,3 +26,10 @@ td, h1, th {
     text-align: center;
 }
 
+#nav1
+{  
+    background-color:#F00;
+    opacity: 0.5; 
+    filter:(opacity=50);       
+}
+
