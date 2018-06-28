@@ -1,3 +1,4 @@
+
 var queryURL = "https://worldcup.sfg.io/matches/today";
 
 $.ajax({
@@ -17,10 +18,11 @@ $.ajax({
         var newRow = $(
             "<tr><td>" + results[i].home_team_country + "</td><td>"
             + results[i].away_team_country + "</td><td>" + 
-            results[i].home_team.goals + "||" + results[i].away_team.goals
+            results[i].home_team.goals + " || " + results[i].away_team.goals
             + "</td><td>" + results[i].winner + "</td></tr>"
         );
         tbody.append(newRow);
     }
 
 });
+
