@@ -12,7 +12,7 @@
     <!--Loading our parallax.js-->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <script src="assets/javascript/Score.js"></script>
-    <script src="assets/javascript/twitter.js"></script>
+    <!-- <script src="assets/javascript/twitter.js"></script> -->
     <script src="assets/javascript/parallax.min.js"></script>
 </head>
 
@@ -46,7 +46,7 @@
                 <br><br>
                 <div class = "row">
                     <div class = "col-lg-8">
-                        <h1>Current Game</h1>
+                        <h1>Current Games</h1>
                         <h2>
                         <table class="table table-bordered" style="width:100%">
                             <thead>
@@ -65,6 +65,36 @@
                     <div class = "col-lg-4">
                         <h1>#WorldCup Twitter Feed</h1>
                         <div id="twitter-feed"></div>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-lg-4">
+                        <h1>Yesterday's Games</h1>
+                        <table class = "table table-bordered" style = "width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Team 1</th>
+                                    <th scope="col">Team 2</th>
+                                    <th scope="col">Winner</th>
+                                </tr>
+                            </thead>
+                            <tbody id = "yesterdayMatch">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class = "col-lg-4">
+                        <h1>Tomorrow's Games</h1>
+                        <table class = "table table-bordered" style = "width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Team 1</th>
+                                    <th scope="col"> </th>
+                                    <th scope="col">Team 2</th>
+                                </tr>
+                            </thead>
+                            <tbody id = "tomorrowMatch">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
