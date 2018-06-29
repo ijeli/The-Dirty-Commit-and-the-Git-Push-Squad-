@@ -10,6 +10,8 @@
     <!--Loading our jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--Loading our parallax.js-->
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="assets/javascript/script.js"></script>
     <script src="assets/javascript/parallax.min.js"></script>
 </head>
 
@@ -19,23 +21,61 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-    <header>
-        <h1>World Cup 2018</h1>
-    </header>
-    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/adidas-worldcup.jpg" data-natural-width="2553" data-natural-height="1114" style="height: 500px;"></div>
-    <section>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent" id="nav1">
+            <a class="navbar-brand" href="#">WORLD CUP 2018</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#ScoreTwitter">Score</a>
+                <a class="nav-item nav-link" href="#TeamsNextTrivia">Your Team</a>
+                <a class="nav-item nav-link" href="#Entertainment">Entertainment</a>
+              </div>
+            </div>
+
+    </nav>
+
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/2018WC.jpg" data-natural-width="2553" data-natural-height="1114" style="height: 500px;"></div>
+    <section id = "ScoreTwitter">
         <div class="placeholder">
-            <p>Placeholder for Current Game and #WorldCup Twitter Feed</p>
+            <div class = "container">
+                <br><br>
+                <div class = "row">
+                    <div class = "col-lg-8">
+                        <h1>Current Game</h1>
+                        <h2>
+                        <table class="table table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Team 1</th>
+                                    <th scope="col">Team 2</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Winner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        </h2>
+                    </div>
+                    <div class = "col-lg-4">
+                        <h1>#WorldCup Twitter Feed</h1>
+                    </div>
+                </div>
+            </div>
+            <br><br>
         </div>
     </section>
     <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/russia-fifa.jpg" data-natural-width="750" data-natural-height="392" style="height: 500px;"></div>
-    <section>
+    <section id = "TeamsNextTrivia">
         <div class="placeholder">
             <p>Placeholder for Teams Following, Next Games and Trivia</p>
         </div>
     </section>
     <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/soccer-players.jpg" data-natural-width="946" data-natural-height="432" style="height: 500px;"></div>
-    <section>
+    <section id = "Entertainment">
         <div class="placeholder">
             <p>Placeholder for Entertainment</p>
         </div>
@@ -46,8 +86,7 @@
     </footer>
     
 
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
-    <script src="assets/javascript/script.js"></script>
+
 </body>
 
 </html>
