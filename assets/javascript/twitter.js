@@ -1,7 +1,7 @@
-var url = "https://api.twitter.com/oauth/authorize";
-url += '?' + $.param({
-  'api-key': "8eh1KRCeNXEgeZNaYUZpUcv3Z"
-});
+var url = "https://api.twitter.com/1.1/search/tweets.json?q=cats_type=popular";
+// url += '?' + $.param({
+//   'api-key': "8eh1KRCeNXEgeZNaYUZpUcv3Z"
+// });
 $.ajax({
  url: url,
  method: 'GET',
