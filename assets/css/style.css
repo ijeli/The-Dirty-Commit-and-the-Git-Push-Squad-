@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Dusha V5";
+    src: url(worldcupfont.ttf);
+}
+
+
+body{
+    font-family: "Dusha V5", sans-serif;
+}
+
 header, footer {
     padding: 25px 0 35px;
     background: #fff;
