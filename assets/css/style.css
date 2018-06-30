@@ -21,3 +21,15 @@ header h1 {
     height: 500px;
     font-size: 3em;
 }
+
+td, h1, th {
+    text-align: center;
+}
+
+#nav1
+{  
+    background-color:#F00;
+    opacity: 0.5; 
+    filter:(opacity=50);       
+}
+
