@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <title>Project One</title>
     <link rel= "stylesheet" href = "assets/css/reset.css" type = "text/css"/>
@@ -9,20 +7,16 @@
     <link rel = "stylesheet" href="assets/css/style.css" type= "text/css"/>
     <!--Loading our jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--Loading our parallax.js-->
+    <!--Loading our firebase.js-->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <script src="assets/javascript/Score.js"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- <script src="assets/javascript/twitter.js"></script> -->
+    <!--Loading our parallax.js-->
     <script src="assets/javascript/parallax.min.js"></script>
-</head>
-
-<body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--Loading Popper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+</head>
+<body>    
+    <!--Top Bar Navigation-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent" id="nav1">
             <a class="navbar-brand" href="#home">WORLD CUP 2018</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,78 +28,70 @@
                 <a class="nav-item nav-link" href="#ScoreTwitter">Score</a>
                 <a class="nav-item nav-link" href="#TeamsNextTrivia">Your Team</a>
                 <a class="nav-item nav-link" href="#Entertainment">Entertainment</a>
-              </div>
             </div>
-
+        </div>
     </nav>
-    
-
-
-
-
-
+    <!--First Image-->
     <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/2018WC.jpg" data-natural-width="2553" data-natural-height="1114" style="height: 500px;"></div>
-    <section id = "ScoreTwitter">
-        <div class="placeholder">
-            <div class = "container">
-                <br><br>
-                <div class = "row">
-                    <div class = "col-lg-8">
-                        <h1>Current Games</h1>
+    <!--First Section-->
+    <section id = "ScoreTwitter" class="container w-100">
+        <br><br>
+        <!--=========New Build===========-->
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class = "col-lg-12">
+                        <h1 class="header">Current Games</h1>
                         <h2>
-                        <table class="table table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">In Game Time</th>
-                                    <th scope="col">Team 1</th>
-                                    <th scope="col">Score</th>
-                                    <th scope="col">Team 2</th>
-                                    <th scope="col">Winner</th>
-                                </tr>
-                            </thead>
-                            <tbody id = "currentScore">
-                            </tbody>
-                        </table>
+                            <table class="table current-score-table" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Team 1</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Team 2</th>
+                                        <th scope="col">Winner</th>
+                                    </tr>
+                                </thead>
+                                <tbody id = "currentScore">
+                                </tbody>
+                            </table>
                         </h2>
                     </div>
-                    <div class = "col-lg-4">
-                        <h1>#WorldCup Twitter Feed</h1>
-                        <div id="twitter-feed"></div>
-                    </div>
-                </div>
-                <div class = "row">
-                    <div class = "col-lg-4">
-                        <h1>Yesterday's Games</h1>
-                        <table class = "table table-bordered" style = "width: 100%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Team 1</th>
-                                    <th scope="col">Team 2</th>
-                                    <th scope="col">Winner</th>
-                                </tr>
-                            </thead>
-                            <tbody id = "yesterdayMatch">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class = "col-lg-4">
-                        <h1>Tomorrow's Games</h1>
-                        <table class = "table table-bordered" style = "width: 100%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Team 1</th>
-                                    <th scope="col"> </th>
-                                    <th scope="col">Team 2</th>
-                                </tr>
-                            </thead>
-                            <tbody id = "tomorrowMatch">
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class = "col-lg-6">
+                            <h1 class="header">Yesterday's Games</h1>
+                            <table class = "table yesterday-games-table" style = "width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Team 1</th>
+                                        <th scope="col">Team 2</th>
+                                        <th scope="col">Winner</th>
+                                    </tr>
+                                </thead>
+                                <tbody id = "yesterdayMatch">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class = "col-lg-6">
+                                <h1 class="header">Tomorrow's Games</h1>
+                                <table class = "table tomorrow-games-table" style = "width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Team 1</th>
+                                            <th scope="col"> </th>
+                                            <th scope="col">Team 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id = "tomorrowMatch">
+                                    </tbody>
+                                </table>
+                            </div>
                 </div>
             </div>
-            <br><br>
-        </div>
+            <div class = "col-lg-5 col-sm-12">
+                <h1 class="header">#WorldCup</h1>
+                <iframe frameborder="0" width="500" height="600" src="http://worldcup.tweetwally.com/embed" target="_blank" align="center" scrolling="Auto"></iframe>            </div>
+        </div>       
+        <br><br>
     </section>
     <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/worldcupteams.jpg" data-natural-width="1191" data-natural-height="750" style="height: 500px;"></div>
     <section id = "TeamsNextTrivia">
