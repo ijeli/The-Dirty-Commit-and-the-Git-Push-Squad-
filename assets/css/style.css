@@ -3,6 +3,9 @@
     src: url(worldcupfont.ttf);
 }
 
+.container {
+    min-width: 1230px;
+}
 
 body{
     font-family: "Dusha V5", sans-serif;
@@ -43,4 +46,44 @@ td, h1, th {
     filter:(opacity=50);       
 }
 
+.current-score-table {
+    background-color: #1362A4;
+    color:white;
+}
 
+.current-score-table td {
+    background-color: #d6e0f5;
+    color: #444;
+}
+
+.yesterday-games-table {
+    background-color:#ffff4d;
+    color: #444;
+}
+
+.yesterday-games-table td {
+    background-color: #ffffe6;
+    color: #444;
+}
+
+.yesterday-games-table th {
+    font-size: 1.2em;
+}
+
+.tomorrow-games-table {
+    background-color:#39e600;
+    color: #444;
+}
+
+.tomorrow-games-table td {
+    background-color: #ecffe6;
+    color: #444;
+}
+
+.tomorrow-games-table th {
+    font-size: 1.2em;
+}
+
+.header {
+    color: #444;
+}
