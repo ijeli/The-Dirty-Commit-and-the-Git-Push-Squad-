@@ -90,6 +90,7 @@ $.ajax({
         );
 
         if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
+            console.log(this);
             tbodyYM.append(newRow);
         }
 
@@ -112,9 +113,11 @@ $.ajax({
     for (var i=0; i< results.length; i++){
         console.log(results[i].country);
         var countryList = $("#your-team");
-        var newList = $("<li>"+ results[i].country + "</li>");
+        var newList = $("<a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a><br>");
         
         countryList.append(newList);
+
+        $(".placeholder").css("background-color", "white");
     }
 
     
