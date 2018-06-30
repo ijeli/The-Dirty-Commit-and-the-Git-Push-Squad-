@@ -25,7 +25,7 @@ $.ajax({
         tbodyCS.append(newRow);
         $(".placeholder").css("background-color", "white");
 
-        if(reults[i].winner === null){
+        if(results[i].winner === null){
             results[i].winner.append("Game Ongoing");
         }
     }
