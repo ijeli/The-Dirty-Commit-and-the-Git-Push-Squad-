@@ -115,10 +115,28 @@ $.ajax({
         var countryList = $("#your-team");
         var newList = $("<a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a><br>");
         
+        
         countryList.append(newList);
 
         $(".placeholder").css("background-color", "white");
     }
+        
+
+
+    //appending a b
+    // $(results[i].country).on("click", function(){
+       
+    //     var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+    //         a.addClass("btn btn-success"); // Added a class 
+    //         a.addClass("btn btn-primary btn-lg");
+    //         a.attr('data-name',results[i].country); // Added a data-attribute
+    //         a.text(results[i].country); // Provided the initial button text
+    //         $('.team-buttons').append(a); // Added the button to the HTML
+
+    //     var teamButton = $(results[i].country).val().trim();
+    //     $(".team-buttons").append(teamButton);
+
+    // });
 
     
 });
