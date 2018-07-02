@@ -114,7 +114,7 @@ $.ajax({
     for (var i=0; i< results.length; i++){
         //console.log(results[i].country);
         var countryList = $("#your-team");
-        var newList = $("<a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a><br>");
+        var newList = $("<li><a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a></li>");
         
         
         countryList.append(newList);
