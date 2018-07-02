@@ -1,23 +1,32 @@
 //Current Score
+
+setInterval(function LoadScore() {
 var queryURL = "https://worldcup.sfg.io/matches/today";
 
 $.ajax({
     url: queryURL,
     method: "GET"
-})
-.then(function(response) {
-    console.log(queryURL);
-    console.log(response);
+}).then(function(response) {
+    //console.log(queryURL);
+    //console.log(response);
     var results = response;
 
     for (var i = 0; i < results.length; i++) {
+        //clear the table before loading data
+        $(".scoreRow-" + [i]).remove();
         //console.log(results[i]);
         //console.log(results[i].venue);
-        console.log(results[0].winner_code);
+        //console.log(results[0].winner_code);
+        //Check for null fields
+        if(results[i].winner === null){
+            results[i].winner = "Game Ongoing";
+        }
+        if(results[i].time === null){
+            results[i].time = "Game Ongoing";
+        }
         var tbodyCS = $("#currentScore");
         var newRow = $(
-            
-            "<tr><td>" + results[i].time+"</td><td>" + results[i].home_team_country + "</td><td>" + 
+            "<tr class='scoreRow-" + [i] + "'><td>" + results[i].time +"</td><td>" + results[i].home_team_country + "</td><td>" + 
             results[i].home_team.goals + " || " + results[i].away_team.goals
             + "</td><td>" + results[i].away_team_country + "</td><td>" 
             + results[i].winner + "</td></tr>"
@@ -26,15 +35,11 @@ $.ajax({
         $(".placeholder").css("background-color", "white");
 
         if(results[i].winner === null){
-            results[i].winner.append("Game Ongoing");
+            results[i].winner = "Game Ongoing";
         }
     }
-    
-    
-
 });
-
-
+}, 5000);
 //Tomorrow Score
 var queryURL2 = "https://worldcup.sfg.io/matches/tomorrow/?by_date=DESC";
 
@@ -43,8 +48,8 @@ $.ajax({
     method: "GET"
 })
 .then(function(response) {
-    console.log(queryURL2);
-    console.log(response);
+    //console.log(queryURL2);
+    //console.log(response);
     var results = response;
 
     for (var i = 0; i < results.length; i++) {
@@ -67,8 +72,8 @@ $.ajax({
     method: "GET"
 })
 .then(function(response) {
-    console.log(queryURL3);
-    console.log(response);
+    //console.log(queryURL3);
+    //console.log(response);
     var results = response;
 
     for (var i = 0; i < results.length; i++) {
@@ -76,12 +81,12 @@ $.ajax({
         var sliced = date.slice(0,10);          //2018-06-28
         var slicedFormat = "YYYY-MM-DD";
         var convertSliced = moment(sliced, slicedFormat);
-        console.log(moment(convertSliced).format("YYYY-MM-DD"))
+        //console.log(moment(convertSliced).format("YYYY-MM-DD"))
         //console.log(moment(convertSliced).format("MM/DD/YY"));
         var currentDate = moment();
         //console.log(moment(currentDate).format("YYYY-MM-DD"));
         var diffconvertSliced = moment(currentDate, "YYYY-MM-DD").subtract(1, "days");
-        console.log(moment(diffconvertSliced).format("YYYY-MM-DD"));
+        //console.log(moment(diffconvertSliced).format("YYYY-MM-DD"));
 
         tbodyYM = $("#yesterdayMatch");
         var newRow = $(
@@ -90,7 +95,7 @@ $.ajax({
         );
 
         if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
-            console.log(this);
+            //console.log(this);
             tbodyYM.append(newRow);
         }
 
@@ -106,12 +111,12 @@ $.ajax({
     method: "GET"
 })
 .then(function(response) {
-    console.log(queryURL4);
-    console.log(response);
+    //console.log(queryURL4);
+    //console.log(response);
     var results = response;
 
     for (var i=0; i< results.length; i++){
-        console.log(results[i].country);
+        //console.log(results[i].country);
         var countryList = $("#your-team");
         var newList = $("<a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a><br>");
         
