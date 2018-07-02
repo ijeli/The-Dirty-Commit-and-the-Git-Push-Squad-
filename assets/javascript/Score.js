@@ -1,53 +1,52 @@
 //Current Score
-
 setInterval(function LoadScore() {
-var queryURL = "https://worldcup.sfg.io/matches/today";
+    var queryURL = "https://worldcup.sfg.io/matches/today";
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function(response) {
-    //console.log(queryURL);
-    //console.log(response);
-    var results = response;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        //console.log(queryURL);
+        //console.log(response);
+        var results = response;
 
-    for (var i = 0; i < results.length; i++) {
-        //clear the table before loading data
-        $(".scoreRow-" + [i]).remove();
-        //console.log(results[i]);
-        //console.log(results[i].venue);
-        //console.log(results[0].winner_code);
-        //Check for null fields
-        if(results[i].winner === null){
-            results[i].winner = "Game Ongoing";
-        }
-        if(results[i].time === null){
-            results[i].time = "Game Ongoing";
-        }
-        var tbodyCS = $("#currentScore");
-        var newRow = $(
-            "<tr class='scoreRow-" + [i] + "'><td>" + results[i].time +"</td><td>" + results[i].home_team_country + "</td><td>" + 
-            results[i].home_team.goals + " || " + results[i].away_team.goals
-            + "</td><td>" + results[i].away_team_country + "</td><td>" 
-            + results[i].winner + "</td></tr>"
-        );
-        tbodyCS.append(newRow);
-        $(".placeholder").css("background-color", "white");
+        for (var i = 0; i < results.length; i++) {
+            //clear the table before loading data
+            $(".scoreRow-" + [i]).remove();
+            //console.log(results[i]);
+            //console.log(results[i].venue);
+            //console.log(results[0].winner_code);
+            //Check for null fields
+            if(results[i].winner === null){
+                results[i].winner = "Game Ongoing";
+            }
+            if(results[i].time === null){
+                results[i].time = "Game Ongoing";
+            }
+            var tbodyCS = $("#currentScore");
+            var newRow = $(
+                "<tr class='scoreRow-" + [i] + "'><td>" + results[i].time +"</td><td>" + results[i].home_team_country + "</td><td>" + 
+                results[i].home_team.goals + " || " + results[i].away_team.goals
+                + "</td><td>" + results[i].away_team_country + "</td><td>" 
+                + results[i].winner + "</td></tr>"
+            );
+            tbodyCS.append(newRow);
+            $(".placeholder").css("background-color", "white");
 
-        if(results[i].winner === null){
-            results[i].winner = "Game Ongoing";
+            if(results[i].winner === null){
+                results[i].winner = "Game Ongoing";
+            }
         }
-    }
-});
+    });
 }, 5000);
-//Tomorrow Score
+
+//Tomorrow's Score
 var queryURL2 = "https://worldcup.sfg.io/matches/tomorrow/?by_date=DESC";
 
 $.ajax({
     url: queryURL2,
     method: "GET"
-})
-.then(function(response) {
+}).then(function(response) {
     //console.log(queryURL2);
     //console.log(response);
     var results = response;
@@ -63,15 +62,13 @@ $.ajax({
     }
 });
 
-
-//Yesterday Score
+//Yesterday's Score
 var queryURL3 = "https://worldcup.sfg.io/matches"
 
 $.ajax({
     url: queryURL3,
     method: "GET"
-})
-.then(function(response) {
+}).then(function(response) {
     //console.log(queryURL3);
     //console.log(response);
     var results = response;
@@ -102,8 +99,7 @@ $.ajax({
     }
 });
 
-
-
+//teams dropdown
 var queryURL4 = "https://worldcup.sfg.io/teams/"
 
 $.ajax({
@@ -124,8 +120,6 @@ $.ajax({
 
         $(".placeholder").css("background-color", "white");
     }
-
-    
 });
 
 //THIS IS FOR SCROLLING AND THE SMOOTHNESS TRANSITION OF NAVIGATION
