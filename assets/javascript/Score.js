@@ -123,20 +123,22 @@ $.ajax({
         
 
 
-    //appending a b
-    // $(results[i].country).on("click", function(){
+    $(results[i].country).on("click", function(){
+
+
+
+            var getList = $("#your-team");
+            var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+            a.addClass("btn btn-success"); // Added a class 
+            a.addClass("btn btn-primary btn-lg");
+            a.attr('data-name',results[i].country); // Added a data-attribute
+            a.text(results[i].country); // Provided the initial button text
+            $('.team-buttons').append(a); // Added the button to the HTML
+
        
-    //     var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-    //         a.addClass("btn btn-success"); // Added a class 
-    //         a.addClass("btn btn-primary btn-lg");
-    //         a.attr('data-name',results[i].country); // Added a data-attribute
-    //         a.text(results[i].country); // Provided the initial button text
-    //         $('.team-buttons').append(a); // Added the button to the HTML
+        $(".team-buttons").append(a);
 
-    //     var teamButton = $(results[i].country).val().trim();
-    //     $(".team-buttons").append(teamButton);
-
-    // });
+    });
 
     
 });
