@@ -114,12 +114,45 @@ $.ajax({
     for (var i=0; i< results.length; i++){
         //console.log(results[i].country);
         var countryList = $("#your-team");
-        var newList = $("<a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a><br>");
+        var newList = $("<li><a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a></li>");
+        
         
         countryList.append(newList);
 
         $(".placeholder").css("background-color", "white");
     }
+        
+
+
+
+
+    function renderButtons(){
+        var getList = $("#team-buttons");
+        var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+        a.addClass("btn btn-success"); // Added a class 
+        a.addClass("btn btn-primary btn-lg");
+        a.attr('data-name',results[i].country); // Added a data-attribute
+        a.text(results[i].country); // Provided the initial button text
+        $('.team-buttons').append(a); // Added the button to the HTML
+
+
+
+    }
+
+
+    $("#your-team").on("click", function(){
+
+        
+        
+        renderButtons();
+
+          
+       
+   
+
+    });
+
+    
 });
 
 //THIS IS FOR SCROLLING AND THE SMOOTHNESS TRANSITION OF NAVIGATION
@@ -146,4 +179,10 @@ $(document).ready(function(){
         });
       } // End if
     });
+
+
+
+
+
+
   });
