@@ -3,6 +3,10 @@
     src: url(worldcupfont.ttf);
 }
 
+iframe {
+    border-bottom: 20px solid skyblue;
+}
+
 .container {
     min-width: 1230px;
 }
