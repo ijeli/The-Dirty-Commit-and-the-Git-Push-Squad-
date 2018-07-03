@@ -139,10 +139,33 @@ function teamList() {
         for (var i=0; i< results.length; i++){
             //console.log(results[i].country);
             var countryList = $("#your-team");
-            var newList = $("<a class='dropdown-item' id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a>");
+            var newList = $("<a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='#follow-teams'>"+ results[i].country + "</a>");
             
             countryList.append(newList);
+
+            var fifaCode = results[i].fifa_code;
+            var fifaCodePound = "#" + fifaCode;
+            console.log(fifaCodePound);
+            var teamInfo = $("#teaminfo");
+            var teamTitle = $("#teampagetitle");
+            var teamStat = $(
+                "<h1>" + results[i].country + "</h1> <span> Wins: " + results[i].wins 
+                + "</span><br><span> Losses:" + results[i].losses + "</span>"
+            );
+
+            $(".teamselect").on("click", function(event) {
+                    //teamTitle.append("<h1>" + results[i].country + "</h1>");
+                    teamInfo.append(teamStat);
+                    $("#placeholder").style("height: auto;")
+    
+                
+               
+    
+    
+            });
         }
+        
+
     });
 }
 
