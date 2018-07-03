@@ -4,7 +4,9 @@
 }
 
 iframe {
-    border-bottom: 20px solid skyblue;
+    border: 1px solid skyblue;
+    border-bottom: 19px solid skyblue;
+    border-radius:5px;
 }
 
 .container {
