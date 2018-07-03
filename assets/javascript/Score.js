@@ -50,17 +50,17 @@ function tomorrowsGames() {
         console.log('Tomorrows Matches');
         console.log(response);
         var results = response;
+        console.log('results.length');
+        console.log(results.length);
 
         //filling in null with n/a
-        if(results === []) {
-            results = "n/a"
-        }
-        if(results[i].home_team.code === []) {
-            results[i].home_team.code = "n/a"
-        }
-        if(results[i].away_team.code === '[]') {
-            results[i].away_team.code = "n/a"
-        }
+        if(results.length === 0) {
+            var tbodyTM = $("#tomorrows-matches");
+            var newRow = $(
+                "<tr><td colspan='3' rowspan='2' style='font-size:2em;'>N/A</td></tr>"
+            );
+            tbodyTM.append(newRow);
+        } else {
         for (var i = 0; i < results.length; i++) {
             var tbodyTM = $("#tomorrows-matches");
             var newRow = $(
@@ -69,6 +69,7 @@ function tomorrowsGames() {
             );
             tbodyTM.append(newRow);
         }
+    }
     });
     yesterdaysMatches();
 }
@@ -85,7 +86,14 @@ function yesterdaysMatches() {
         console.log('Yesterdays Matches');
         console.log(response);
         var results = response;
-
+        //filling in null with n/a
+        if(results.length === 0) {
+            var tbodyYM = $("#yesterdayMatch");
+            var newRow = $(
+                "<tr><td colspan='3' rowspan='2' style='font-size:2em;'>N/A</td></tr>"
+            );
+            tbodyTM.append(newRow);
+        } else {
         for (var i = 0; i < results.length; i++) {
             var date = results[i].datetime;         //2018-06-28T14:00:00Z
             var sliced = date.slice(0,10);          //2018-06-28
@@ -110,6 +118,7 @@ function yesterdaysMatches() {
             }
 
         }
+    }
     });
     teamList();
 }
@@ -130,7 +139,7 @@ function teamList() {
         for (var i=0; i< results.length; i++){
             //console.log(results[i].country);
             var countryList = $("#your-team");
-            var newList = $("<a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a><br>");
+            var newList = $("<a class='dropdown-item' id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a>");
             
             countryList.append(newList);
         }
