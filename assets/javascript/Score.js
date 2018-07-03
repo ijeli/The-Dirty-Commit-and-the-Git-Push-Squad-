@@ -124,20 +124,31 @@ $.ajax({
         
 
 
-    $(results[i].country).on("click", function(){
+
+
+    function renderButtons(){
+        var getList = $("#team-buttons");
+        var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+        a.addClass("btn btn-success"); // Added a class 
+        a.addClass("btn btn-primary btn-lg");
+        a.attr('data-name',results[i].country); // Added a data-attribute
+        a.text(results[i].country); // Provided the initial button text
+        $('.team-buttons').append(a); // Added the button to the HTML
 
 
 
-            var getList = $("#your-team");
-            var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-            a.addClass("btn btn-success"); // Added a class 
-            a.addClass("btn btn-primary btn-lg");
-            a.attr('data-name',results[i].country); // Added a data-attribute
-            a.text(results[i].country); // Provided the initial button text
-            $('.team-buttons').append(a); // Added the button to the HTML
+    }
 
+
+    $("#your-team").on("click", function(){
+
+        
+        
+        renderButtons();
+
+          
        
-        $(".team-buttons").append(a);
+   
 
     });
 
@@ -168,4 +179,10 @@ $(document).ready(function(){
         });
       } // End if
     });
+
+
+
+
+
+
   });
