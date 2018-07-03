@@ -101,7 +101,7 @@ function yesterdaysMatches() {
             tbodyYM = $("#yesterdayMatch");
             var newRow = $(
                 "<tr><td>" + results[i].home_team.code + " | " + results[i].home_team.goals + "</td><td>"
-                + results[i].away_team.code + " | " + results[i].home_team.goals + "</td><td>" + results[i].winner + "</td></tr>"
+                + results[i].away_team.code + " | " + results[i].away_team.goals + "</td><td>" + results[i].winner + "</td></tr>"
             );
 
             if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
