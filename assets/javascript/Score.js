@@ -144,11 +144,10 @@ function teamList() {
             countryList.append(newList);
         }
     });
-    setInterval(refreshScores(), 10000);
 }
 
 //Refresh the Current Game Data
-function refreshScores() {
+setInterval(function refreshScores() {
         var queryURL = "https://worldcup.sfg.io/matches/today";
     
         $.ajax({
@@ -183,7 +182,7 @@ function refreshScores() {
                 tbodyCS.append(newRow);
             }
         });
-}
+}, 10000);
 
 
 //THIS IS FOR SCROLLING AND THE SMOOTHNESS TRANSITION OF NAVIGATION
