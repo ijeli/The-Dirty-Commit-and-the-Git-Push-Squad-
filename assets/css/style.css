@@ -46,6 +46,11 @@ header h1 {
     font-size: 3em;
 }
 
+#follow-teams {
+    min-height: 400px;
+    padding:20px;
+}
+
 td, h1, th {
     text-align: center;
 }

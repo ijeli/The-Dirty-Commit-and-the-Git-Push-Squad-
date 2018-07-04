@@ -7,31 +7,40 @@ function loadScore() {
         method: "GET"
     }).then(function(response) {
         //console.log(queryURL);
-        //console.log(response);
-        var results = response;
 
-        for (var i = 0; i < results.length; i++) {
-            //clear the table before loading data
-            $(".scoreRow-" + [i]).remove();
-            //console.log(results[i]);
-            //console.log(results[i].venue);
-            //console.log(results[0].winner_code);
-            
-            //Check for null fields
-            if(results[i].winner === null){
-                results[i].winner = "Game Ongoing";
-            }
-            if(results[i].time === null){
-                results[i].time = "Game Ongoing";
-            }
-            var tbodyCS = $("#currentScore");
+        var results = response;
+        console.log("Today's Score");
+        console.log(results);
+        if(results.length === 0) {
+            var tbodyTM = $("#currentScore");
             var newRow = $(
-                "<tr class='scoreRow-" + [i] + "'><td>" + results[i].time +"</td><td>" + results[i].home_team_country + "</td><td>" + 
-                results[i].home_team.goals + " || " + results[i].away_team.goals
-                + "</td><td>" + results[i].away_team_country + "</td><td>" 
-                + results[i].winner + "</td></tr>"
+                "<tr><td colspan='5' rowspan='5' style='font-size:2em;'>N/A</td></tr>"
             );
-            tbodyCS.append(newRow);
+            tbodyTM.append(newRow);
+        } else {
+            for (var i = 0; i < results.length; i++) {
+                //clear the table before loading data
+                $(".scoreRow-" + [i]).remove();
+                //console.log(results[i]);
+                //console.log(results[i].venue);
+                //console.log(results[0].winner_code);
+                
+                //Check for null fields
+                if(results[i].winner === null){
+                    results[i].winner = "Game Ongoing";
+                }
+                if(results[i].time === null){
+                    results[i].time = "Game Ongoing";
+                }
+                var tbodyCS = $("#currentScore");
+                var newRow = $(
+                    "<tr class='scoreRow-" + [i] + "'><td>" + results[i].time +"</td><td>" + results[i].home_team_country + "</td><td>" + 
+                    results[i].home_team.goals + " || " + results[i].away_team.goals
+                    + "</td><td>" + results[i].away_team_country + "</td><td>" 
+                    + results[i].winner + "</td></tr>"
+                );
+                tbodyCS.append(newRow);
+            }
         }
     });
 
