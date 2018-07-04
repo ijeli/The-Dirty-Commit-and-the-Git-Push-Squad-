@@ -110,6 +110,11 @@ td, h1, th {
     animation: spin 2s linear;
 }
 
+#follow-teams{
+    min-height: 500px;
+    padding: 20px;
+}
+
 
 /* @-webkit-keyframes spin {
 0% { -webkit-transform: rotate(0deg); }
