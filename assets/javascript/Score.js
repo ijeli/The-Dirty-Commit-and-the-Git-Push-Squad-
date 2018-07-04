@@ -139,9 +139,29 @@ function teamList() {
         for (var i=0; i< results.length; i++){
             //console.log(results[i].country);
             var countryList = $("#your-team");
-            var newList = $("<a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='#follow-teams'>"+ results[i].country + "</a>");
+            var newList = $("<li><a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a></li>");
             
             countryList.append(newList);
+            
+            
+
+            function renderButtons(){
+             
+                var teamButton = $("<button>");
+                teamButton.addClass("btn btn-success");
+                teamButton.addClass("btn btn-primary btn-lg");
+                teamButton.attr(results[i].fifa_code, results[i].country);
+                teamButton.html(results[i].country);
+
+
+
+                $("team-buttons").append(teamButton);
+
+
+            }
+
+
+
 
             var fifaCode = results[i].fifa_code;
             var fifaCodePound = "#" + fifaCode;
@@ -156,7 +176,8 @@ function teamList() {
             $(".teamselect").on("click", function(event) {
                     //teamTitle.append("<h1>" + results[i].country + "</h1>");
                     teamInfo.append(teamStat);
-                    $("#placeholder").style("height: auto;")
+                    $("#placeholder").style("height: auto;");
+                    renderButtons();
     
                 
                
