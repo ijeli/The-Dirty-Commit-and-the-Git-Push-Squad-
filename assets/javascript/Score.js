@@ -128,6 +128,7 @@ $.ajax({
 
 
 
+
             var getList = $("#your-team");
             var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
             a.addClass("btn btn-success"); // Added a class 
@@ -138,8 +139,6 @@ $.ajax({
 
        
         $(".team-buttons").append(a);
-
-    });
 
     
 });

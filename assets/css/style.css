@@ -45,10 +45,11 @@ td, h1, th {
 }
 
 #nav1
+
 {  
     background-color:#F00;
     opacity: 0.5; 
-    filter:(opacity=50);       
+    filter:(opacity=50);   
 }
 
 .current-score-table {
