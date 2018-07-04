@@ -3,6 +3,12 @@
     src: url(worldcupfont.ttf);
 }
 
+iframe {
+    border: 1px solid skyblue;
+    border-bottom: 19px solid skyblue;
+    border-radius:5px;
+}
+
 .container {
     min-width: 1230px;
 }
@@ -45,11 +51,13 @@ td, h1, th {
 }
 
 #nav1
-
 {  
-    background-color:#F00;
-    opacity: 0.5; 
-    filter:(opacity=50);   
+    background-color:rgba(255, 0, 0, .7);
+    color:white;    
+}
+
+#nav1 a {
+    color:white;
 }
 
 .current-score-table {
@@ -93,4 +101,24 @@ td, h1, th {
 .header {
     color: #444;
 }
+
+/*Follow Teams Section*/
+.current-score-table {
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear; /* Safari */
+    animation: spin 2s linear;
+}
+
+/* @-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} */
+
+
 
