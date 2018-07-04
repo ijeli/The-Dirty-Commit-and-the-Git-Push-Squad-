@@ -1,5 +1,5 @@
 //Current Score
-function loadScore() {
+setInterval(function LoadScore() {
     var queryURL = "https://worldcup.sfg.io/matches/today";
 
     $.ajax({
@@ -16,7 +16,6 @@ function loadScore() {
             //console.log(results[i]);
             //console.log(results[i].venue);
             //console.log(results[0].winner_code);
-            
             //Check for null fields
             if(results[i].winner === null){
                 results[i].winner = "Game Ongoing";
@@ -32,202 +31,117 @@ function loadScore() {
                 + results[i].winner + "</td></tr>"
             );
             tbodyCS.append(newRow);
+            $(".placeholder").css("background-color", "white");
+
+            if(results[i].winner === null){
+                results[i].winner = "Game Ongoing";
+            }
         }
     });
+}, 5000);
 
-    //get tomorrow's games
-    tomorrowsGames();
-}
+//Tomorrow's Score
+var queryURL2 = "https://worldcup.sfg.io/matches/tomorrow/?by_date=DESC";
 
-//Tomorrow's Games
-function tomorrowsGames() {
-    var queryURL2 = "https://worldcup.sfg.io/matches/tomorrow/?by_date=DESC";
-    $.ajax({
-        url: queryURL2,
-        method: "GET"
-    }).then(function(response) {
-        //console.log(queryURL2);
-        console.log('Tomorrows Matches');
-        console.log(response);
-        var results = response;
-        console.log('results.length');
-        console.log(results.length);
+$.ajax({
+    url: queryURL2,
+    method: "GET"
+}).then(function(response) {
+    //console.log(queryURL2);
+    //console.log(response);
+    var results = response;
 
-        //filling in null with n/a
-        if(results.length === 0) {
-            var tbodyTM = $("#tomorrows-matches");
-            var newRow = $(
-                "<tr><td colspan='3' rowspan='2' style='font-size:2em;'>N/A</td></tr>"
-            );
-            tbodyTM.append(newRow);
-        } else {
-        for (var i = 0; i < results.length; i++) {
-            var tbodyTM = $("#tomorrows-matches");
-            var newRow = $(
-                "<tr><td>" + results[i].home_team.code + "</td><td> vs </td><td>"
-                + results[i].away_team.code + "</td></tr>"
-            );
-            tbodyTM.append(newRow);
-        }
+    for (var i = 0; i < results.length; i++) {
+        var tbodyTM = $("#tomorrowMatch");
+        var newRow = $(
+            "<tr><td>" + results[i].home_team.code + "</td><td> vs </td><td>"
+            + results[i].away_team.code + "</td></tr>"
+        );
+        tbodyTM.append(newRow);
+        $(".placeholder").css("background-color", "white");
     }
-    });
-    yesterdaysMatches();
-}
+});
 
 //Yesterday's Score
-function yesterdaysMatches() {
-    var queryURL3 = "https://worldcup.sfg.io/matches"
+var queryURL3 = "https://worldcup.sfg.io/matches"
 
-    $.ajax({
-        url: queryURL3,
-        method: "GET"
-    }).then(function(response) {
-        //console.log(queryURL3);
-        console.log('Yesterdays Matches');
-        console.log(response);
-        var results = response;
-        //filling in null with n/a
-        if(results.length === 0) {
-            var tbodyYM = $("#yesterdayMatch");
-            var newRow = $(
-                "<tr><td colspan='3' rowspan='2' style='font-size:2em;'>N/A</td></tr>"
-            );
-            tbodyTM.append(newRow);
-        } else {
-        for (var i = 0; i < results.length; i++) {
-            var date = results[i].datetime;         //2018-06-28T14:00:00Z
-            var sliced = date.slice(0,10);          //2018-06-28
-            var slicedFormat = "YYYY-MM-DD";
-            var convertSliced = moment(sliced, slicedFormat);
-            //console.log(moment(convertSliced).format("YYYY-MM-DD"))
-            //console.log(moment(convertSliced).format("MM/DD/YY"));
-            var currentDate = moment();
-            //console.log(moment(currentDate).format("YYYY-MM-DD"));
-            var diffconvertSliced = moment(currentDate, "YYYY-MM-DD").subtract(1, "days");
-            //console.log(moment(diffconvertSliced).format("YYYY-MM-DD"));
+$.ajax({
+    url: queryURL3,
+    method: "GET"
+}).then(function(response) {
+    //console.log(queryURL3);
+    //console.log(response);
+    var results = response;
 
-            tbodyYM = $("#yesterdayMatch");
-            var newRow = $(
-                "<tr><td>" + results[i].home_team.code + " | " + results[i].home_team.goals + "</td><td>"
-                + results[i].away_team.code + " | " + results[i].away_team.goals + "</td><td>" + results[i].winner + "</td></tr>"
-            );
+    for (var i = 0; i < results.length; i++) {
+        var date = results[i].datetime;         //2018-06-28T14:00:00Z
+        var sliced = date.slice(0,10);          //2018-06-28
+        var slicedFormat = "YYYY-MM-DD";
+        var convertSliced = moment(sliced, slicedFormat);
+        //console.log(moment(convertSliced).format("YYYY-MM-DD"))
+        //console.log(moment(convertSliced).format("MM/DD/YY"));
+        var currentDate = moment();
+        //console.log(moment(currentDate).format("YYYY-MM-DD"));
+        var diffconvertSliced = moment(currentDate, "YYYY-MM-DD").subtract(1, "days");
+        //console.log(moment(diffconvertSliced).format("YYYY-MM-DD"));
 
-            if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
-                //console.log(this);
-                tbodyYM.append(newRow);
-            }
+        tbodyYM = $("#yesterdayMatch");
+        var newRow = $(
+            "<tr><td>" + results[i].home_team.code + " | " + results[i].home_team.goals + "</td><td>"
+            + results[i].away_team.code + " | " + results[i].home_team.goals + "</td><td>" + results[i].winner + "</td></tr>"
+        );
 
+        if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
+            //console.log(this);
+            tbodyYM.append(newRow);
         }
+
     }
-    });
-    teamList();
-}
+});
 
-//Teams dropdown
-function teamList() {
-    var queryURL4 = "https://worldcup.sfg.io/teams/"
+//teams dropdown
+var queryURL4 = "https://worldcup.sfg.io/teams/"
 
-    $.ajax({
-        url: queryURL4,
-        method: "GET"
-    })
-    .then(function(response) {
-        //console.log(queryURL4);
-        //console.log(response);
-        var results = response;
+$.ajax({
+    url: queryURL4,
+    method: "GET"
+})
+.then(function(response) {
+    //console.log(queryURL4);
+    //console.log(response);
+    var results = response;
 
-        for (var i=0; i< results.length; i++){
-            //console.log(results[i].country);
-            var countryList = $("#your-team");
-            var newList = $("<li><a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a></li>");
-            
-            countryList.append(newList);
-            
-            
+    for (var i=0; i< results.length; i++){
+        //console.log(results[i].country);
+        var countryList = $("#your-team");
+        var newList = $("<li><a id = '" + results[i].fifa_code + "' href='teampage.html'>"+ results[i].country + "</a></li>");
+        
+        
+        countryList.append(newList);
 
-            function renderButtons(){
-             
-                var teamButton = $("<button>");
-                teamButton.addClass("btn btn-success");
-                teamButton.addClass("btn btn-primary btn-lg");
-                teamButton.attr(results[i].fifa_code, results[i].country);
-                teamButton.html(results[i].country);
-
-
-
-                $("team-buttons").append(teamButton);
-
-
-            }
-
-
-
-
-            var fifaCode = results[i].fifa_code;
-            var fifaCodePound = "#" + fifaCode;
-            console.log(fifaCodePound);
-            var teamInfo = $("#teaminfo");
-            var teamTitle = $("#teampagetitle");
-            var teamStat = $(
-                "<h1>" + results[i].country + "</h1> <span> Wins: " + results[i].wins 
-                + "</span><br><span> Losses:" + results[i].losses + "</span>"
-            );
-
-            $(".teamselect").on("click", function(event) {
-                    //teamTitle.append("<h1>" + results[i].country + "</h1>");
-                    teamInfo.append(teamStat);
-                    $("#placeholder").style("height: auto;");
-                    renderButtons();
-    
-                
-               
-    
-    
-            });
-        }
+        $(".placeholder").css("background-color", "white");
+    }
         
 
-    });
-}
 
-//Refresh the Current Game Data
-setInterval(function refreshScores() {
-        var queryURL = "https://worldcup.sfg.io/matches/today";
-    
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            //console.log(queryURL);
-            //console.log(response);
-            var results = response;
-    
-            for (var i = 0; i < results.length; i++) {
-                //clear the table before loading data
-                $(".scoreRow-" + [i]).remove();
-                //console.log(results[i]);
-                //console.log(results[i].venue);
-                //console.log(results[0].winner_code);
-                
-                //Check for null fields
-                if(results[i].winner === null){
-                    results[i].winner = "Game Ongoing";
-                }
-                if(results[i].time === null){
-                    results[i].time = "Game Ongoing";
-                }
-                var tbodyCS = $("#currentScore");
-                var newRow = $(
-                    "<tr class='scoreRow-" + [i] + "'><td>" + results[i].time +"</td><td>" + results[i].home_team_country + "</td><td>" + 
-                    results[i].home_team.goals + " || " + results[i].away_team.goals
-                    + "</td><td>" + results[i].away_team_country + "</td><td>" 
-                    + results[i].winner + "</td></tr>"
-                );
-                tbodyCS.append(newRow);
-            }
-        });
-}, 10000);
+    $(results[i].country).on("click", function(){
 
+
+
+
+            var getList = $("#your-team");
+            var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+            a.addClass("btn btn-success"); // Added a class 
+            a.addClass("btn btn-primary btn-lg");
+            a.attr('data-name',results[i].country); // Added a data-attribute
+            a.text(results[i].country); // Provided the initial button text
+            $('.team-buttons').append(a); // Added the button to the HTML
+
+       
+        $(".team-buttons").append(a);
+
+    
+});
 
 //THIS IS FOR SCROLLING AND THE SMOOTHNESS TRANSITION OF NAVIGATION
 $(document).ready(function(){
@@ -253,6 +167,4 @@ $(document).ready(function(){
         });
       } // End if
     });
-    //start the API calls
-    loadScore();
   });

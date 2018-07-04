@@ -29,15 +29,14 @@
     <script src="assets/javascript/entertainmentscript.js"></script>
 
 </head>
-<body>
+<body>    
     <!--Top Bar Navigation-->
-    <!-- Leah Forbes will fix the branch-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent" id="nav1">
             <a class="navbar-brand" href="#">WORLD CUP 2018</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span id ="home"class="navbar-toggler-icon"></span>
             </button>
-
+          
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" id="home">
               <div class="navbar-nav">
                 <a class="nav-item nav-link" href="#home" >Home <span class="sr-only">(current)</span></a>
@@ -69,7 +68,8 @@
                                         <th scope="col">Winner</th>
                                     </tr>
                                 </thead>
-                                <tbody id = "currentScore"></tbody>
+                                <tbody id = "currentScore">
+                                </tbody>
                             </table>
                         </h2>
                     </div>
@@ -97,7 +97,8 @@
                                             <th scope="col">Team 2</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tomorrows-matches"></tbody>
+                                    <tbody id = "tomorrowMatch">
+                                    </tbody>
                                 </table>
                             </div>
                 </div>
@@ -105,23 +106,26 @@
             <div class = "col-lg-5 col-sm-12">
                 <h1 class="header">#WorldCup</h1>
                 <iframe frameborder="0" width="500" height="600" src="http://worldcup.tweetwally.com/embed" target="_blank" align="center" scrolling="Auto"></iframe>            </div>
-        </div>
+        </div>       
         <br><br>
     </section>
 
-    <div id= "TeamsNextTrivia"class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/worldcupteams.jpg" data-natural-width="1191" data-natural-height="750" style="height: 400px;"></div>
-    <section id = "follow-teams">
+  
+        
+    
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/worldcupteams.jpg" data-natural-width="1191" data-natural-height="750" style="height: 500px;"></div>
+    <section id = "TeamsNextTrivia">
+
             <div class="container">
                 <div class= "row">
-
                     <div class="dropdown">
                         <h1>Follow your favorite teams</h1>
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a Team to Follow
                         <span class="caret"></span></button>
-                        <div id="your-team" class="dropdown-menu team-dropdown">
-                            <!-- <li id="your-team"></li> -->
-                        </div>
-
+                        <ul class="dropdown-menu team-dropdown">
+                            <li id="your-team"></li>
+                        </ul>
+                  
                         <div id = "teaminfo"></div>
                     </div>
                 </div>
@@ -132,7 +136,7 @@
 
         </div>
     </section>
-    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/soccer-players.jpg" data-natural-width="946" data-natural-height="432" style="height: 400px;"></div>
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/soccer-players.jpg" data-natural-width="946" data-natural-height="432" style="height: 500px;"></div>
     <section id = "Entertainment">
       <style>
       .carousel-inner > .item > img,
@@ -230,11 +234,11 @@
 
     </body>
     </section>
-    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/russia.jpg" data-natural-width="887" data-natural-height="570" style="height: 400px;"></div>
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="assets/images/russia.jpg" data-natural-width="887" data-natural-height="570" style="height: 500px;"></div>
     <footer>
         <h1>Footer</h1>
     </footer>
-
+    
     <!--loading custom js-->
     <script src="assets/javascript/Score.js"></script>
 
