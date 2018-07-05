@@ -13,11 +13,12 @@ $.ajax({
 
       console.log(response.articles[i].title);
 
+
+
       //look for the word world cup in the Title
 
-      if(response.articles[i].title.toLowerCase().includes("world"))
+      if(response.articles[i].title.toLowerCase().includes("world") == true)
       {
-
         //$("#myCarouselTest").append("<div class='item'><img src='assets/images/WC2018.jpg' alt='' width='460' height='345'><div class='carousel-caption'><h3>WC2018 Pic One</h3><p>The World Cup 2018 Test API Page Test --  Need to parse API Live Entertaibment Data</p>  </div></div>")
         $("#sexy1").text(response.articles[0].title);
         $("#sexy2").text(response.articles[1].title);
@@ -29,10 +30,23 @@ $.ajax({
         $("#hottie3").text(response.articles[2].description);
         $("#hottie4").text(response.articles[3].description);
 
-        $("#cutie1").text(response.articles[0].url);
-        $("#cutie2").text(response.articles[1].url);
-        $("#cutie3").text(response.articles[2].url);
-        $("#cutie4").text(response.articles[3].url);
+        var cutieOne = $("#cutie1");
+        cutieOne.attr("href", response.articles[0].url);
+        var cutieTwo = $("#cutie2");
+        cutieTwo.attr("href", response.articles[1].url);
+        var cutieThree = $("#cutie3");
+        cutieThree.attr("href", response.articles[2].url);
+        var cutieFour = $("#cutie4")
+        cutieFour.attr(response.articles[3].url);
+
+        var lusciousOne = $("#luscious1");
+        lusciousOne.attr("src", response.articles[0].urlToImage);
+        var lusciousTwo = $("#luscious2");
+        lusciousTwo.attr("src", response.articles[1].urlToImage);
+        var lusciousThree = $("#luscious3");
+        lusciousThree.attr("src", response.articles[2].urlToImage);
+        var lusciousFour = $("#luscious4");
+        lusciousFour.attr("src", response.articles[4].urlToImage);
 
 
 
