@@ -93,8 +93,8 @@ function yesterdaysMatches() {
     }).then(function(response) {
         //console.log(queryURL3);
         console.log('Yesterdays Matches');
-        console.log(response);
         var results = response;
+        console.log(results);
         //filling in null with n/a
         if(results.length === 0) {
             var tbodyYM = $("#yesterdayMatch");
@@ -103,31 +103,30 @@ function yesterdaysMatches() {
             );
             tbodyTM.append(newRow);
         } else {
-        for (var i = 0; i < results.length; i++) {
-            var date = results[i].datetime;         //2018-06-28T14:00:00Z
-            var sliced = date.slice(0,10);          //2018-06-28
-            var slicedFormat = "YYYY-MM-DD";
-            var convertSliced = moment(sliced, slicedFormat);
-            //console.log(moment(convertSliced).format("YYYY-MM-DD"))
-            //console.log(moment(convertSliced).format("MM/DD/YY"));
-            var currentDate = moment();
-            //console.log(moment(currentDate).format("YYYY-MM-DD"));
-            var diffconvertSliced = moment(currentDate, "YYYY-MM-DD").subtract(1, "days");
-            //console.log(moment(diffconvertSliced).format("YYYY-MM-DD"));
+            for (var i = 0; i < results.length; i++) {
+                var date = results[i].datetime;         //2018-06-28T14:00:00Z
+                var sliced = date.slice(0,10);          //2018-06-28
+                var slicedFormat = "YYYY-MM-DD";
+                var convertSliced = moment(sliced, slicedFormat);
+                //console.log(moment(convertSliced).format("YYYY-MM-DD"))
+                //console.log(moment(convertSliced).format("MM/DD/YY"));
+                var currentDate = moment();
+                //console.log(moment(currentDate).format("YYYY-MM-DD"));
+                var diffconvertSliced = moment(currentDate, "YYYY-MM-DD").subtract(1, "days");
+                //console.log(moment(diffconvertSliced).format("YYYY-MM-DD"));
 
-            tbodyYM = $("#yesterdayMatch");
-            var newRow = $(
-                "<tr><td>" + results[i].home_team.code + " | " + results[i].home_team.goals + "</td><td>"
-                + results[i].away_team.code + " | " + results[i].away_team.goals + "</td><td>" + results[i].winner + "</td></tr>"
-            );
+                tbodyYM = $("#yesterdayMatch");
+                var newRow = $(
+                    "<tr><td>" + results[i].home_team.code + " | " + results[i].home_team.goals + "</td><td>"
+                    + results[i].away_team.code + " | " + results[i].away_team.goals + "</td><td>" + results[i].winner + "</td></tr>"
+                );
 
-            if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
-                //console.log(this);
-                tbodyYM.append(newRow);
+                if ((moment(convertSliced).format("YYYY-MM-DD")) === (moment(diffconvertSliced).format("YYYY-MM-DD"))) {
+                    //console.log(this);
+                    tbodyYM.append(newRow);
+                }
             }
-
         }
-    }
     });
     teamList();
 }
