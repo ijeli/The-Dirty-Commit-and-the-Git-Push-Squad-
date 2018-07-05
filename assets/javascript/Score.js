@@ -154,7 +154,7 @@ function teamList() {
 
             var fifaCode = results[i].fifa_code;
             var fifaCodePound = "#" + fifaCode;
-            console.log(fifaCodePound);
+            // console.log(fifaCodePound);
             var teamInfo = $("#teaminfo");
             var teamTitle = $("#teampagetitle");
             var teamStat = $(
