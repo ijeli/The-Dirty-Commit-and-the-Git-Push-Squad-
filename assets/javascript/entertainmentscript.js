@@ -1,6 +1,7 @@
 
 // var queryURL = "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
-var queryURL = "https://newsapi.org/v2/top-headlines?q=world&cup&russia&sources=bbc-sport&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
+// var queryURL = "https://newsapi.org/v2/top-headlines?q=world&cup&russia&sources=bbc-sport&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
+var queryURL = "https://newsapi.org/v2/top-headlines?q=world+cup&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
 
 function lode() {
 $.ajax({
