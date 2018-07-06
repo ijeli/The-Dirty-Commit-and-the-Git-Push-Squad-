@@ -160,7 +160,7 @@ function teamList() {
             var teamInfo = $("#teaminfo");
             var teamTitle = $("#teampagetitle");
             var teamStat = $(
-                "<h1>" + results[i].country + "</h1> <span> Wins: " + results[i].wins 
+                "<button>" + results[i].country + "</button> <span> Wins: " + results[i].wins 
                 + "</span><br><span> Losses:" + results[i].losses + "</span>"
             );
 
