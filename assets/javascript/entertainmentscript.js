@@ -2,6 +2,7 @@
 // var queryURL = "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
 // var queryURL = "https://newsapi.org/v2/top-headlines?q=world&cup&russia&sources=bbc-sport&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
 var queryURL = "https://newsapi.org/v2/top-headlines?q=world+cup&apiKey=09b66003ada9493b9d1e8a9685cbb80e";
+var queryURL2 = "https://newsapi.org/v2/everything?q=world+cup+soccer&sources=buzzfeed&apiKey=09b66003ada9493b9d1e8a9685cbb80e"
 
 function lode() {
 $.ajax({
@@ -27,8 +28,8 @@ $.ajax({
             currentCI.append(newCI);
     
             var currentCIt = $("#CItnext");
-            var newCIt = $("<div class='carousel-item'> <img src = '" + response.articles[i].urlToImage + "' class = 'img-responsive' width='100%' height='600px'><div class='carousel-caption'><h3>" + 
-            response.articles[i].title + "</h3><span>" + response.articles[i].description + "</span> <br> <a href = '" +
+            var newCIt = $("<div class='carousel-item'> <img src = '" + response.articles[i].urlToImage + "' class = 'img-responsive' width='100%' height='400px'><div class='carousel-caption'><h3 class = 'cantseeme'>" + 
+            response.articles[i].title + "</h3><span class = 'cantseeme'>" + response.articles[i].description + "</span> <br> <a class = 'cantseeme itsgonnabemeh' href = '" +
             response.articles[i].url + "'>Read More</a></div></div>"
             );
             currentCIt.append(newCIt);
@@ -96,6 +97,29 @@ $.ajax({
     }
 
 });
+
+$.ajax({
+    url: queryURL2,
+    method: "GET"
+})
+.then(function(response) {
+    for (var i = 0; i < response.articles.length; i++) {
+        var number = 0;
+        var currentCI = $("#CInext2");
+        var newCI = $("<li data-target='#myCarousel2' data-slide-to=" + number++ + "</li>");
+        currentCI.append(newCI);
+
+        var currentCIt = $("#CItnext2");
+        var newCIt = $("<div class='carousel-item'> <img src = '" + response.articles[i].urlToImage + "' class = 'img-responsive' width='100%' height='400px'><div class='carousel-caption'><h3 class = 'cantseeme1'>" + 
+        response.articles[i].title + "</h3><span class = 'cantseeme1'>" + response.articles[i].description + "</span> <br> <a class = 'cantseeme1 itsgonnabemeh' href = '" +
+        response.articles[i].url + "'>Read More</a></div></div>"
+        );
+        currentCIt.append(newCIt);
+    }
+
+
+});
+
 };
 
 

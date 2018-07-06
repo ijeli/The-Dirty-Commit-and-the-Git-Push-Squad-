@@ -120,6 +120,19 @@ td, h1, th {
     border-bottom: 11px solid red;
 }
 
+
+.cantseeme {
+    color: white;
+    background-color: #1362A4;
+    opacity: .80;
+}
+
+.cantseeme1 {
+    color: white;
+    background-color: red;
+    opacity: .80;
+}
+
 /*Follow Teams Section*/
 .current-score-table {
     width: 120px;
