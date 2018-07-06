@@ -3,43 +3,73 @@
     src: url(worldcupfont.ttf);
 }
 
-iframe {
-    border: 1px solid skyblue;
-    border-bottom: 19px solid skyblue;
-    border-radius:5px;
-}
-
 .container {
     min-width: 1230px;
 }
 
 body{
     font-family: "Dusha V5", sans-serif;
+    background-size: 100% !important;
 }
 
+span {
+    padding: 0 4% 0 4%;
+}
+
+/* .team-info {
+    background: url("../images/BestBack.jpg") no-repeat;
+} */
+
+#flag {
+    height: 10%;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.game-header {
+    font-size: 25px;
+}
+
+.game-text {
+    font-size: 20px;
+}
+
+/*************/
 .header {
     color: #444;
-    font-size: 2.4em;
+    background: rgba(255,255,255, .95);
+    text-align: center;
+    font-size: 3em;
+    width: 50%;
+    display: block;
+    margin: 5% auto 0 auto;
+    border-radius: 10px;
 }
 
-header, footer {
-    padding: 25px 0 35px;
-    background: #fff;
-    line-height: 30px;
-    text-align:center;
-    height: 250px;
-    font-size: 3em;
-    vertical-align: baseline;
+header div {
+    font-size: 2.5em;
+    margin-bottom: 5%;
+}
+
+.team-info div {
+    color: #444;
+    background: rgba(255,255,255, .95);
+    border-radius: 10px;
+    padding:20px;
 }
 
 footer {
+    padding: 25px 0 5px 0;
+    background: #fff;
+    line-height: 30px;
+    text-align:center;
+    font-size: 3em;
+    vertical-align: baseline;
     height:75px;
 }
 
-header h1 {
-    font-size: 3.5rem;
-    padding: 60px;
-}
+
 
 .placeholder p {
     padding: 13% 0 35px;
