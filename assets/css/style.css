@@ -55,6 +55,10 @@ header h1 {
     padding:20px;
 }
 
+#entertainment{
+    padding: 20px;
+}
+
 td, h1, th {
     text-align: center;
 }
@@ -109,6 +113,11 @@ td, h1, th {
 
 .header {
     color: #444;
+}
+
+.section-style {
+    border-top: 11px solid red;
+    border-bottom: 11px solid red;
 }
 
 /*Follow Teams Section*/
