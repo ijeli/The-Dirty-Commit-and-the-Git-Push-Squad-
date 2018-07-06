@@ -18,12 +18,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <!--Need this for the dropdown menu-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="assets/javascript/entertainmentscript.js"></script>
-    <style>
-        .carousel-inner > .item > img {
-            margin: 0 auto;
-        }
-    </style>
 </head>
 <body>
 
@@ -41,8 +35,6 @@ function getTeamStuff() {
         method: "GET"
         }).then(function(response) {
         var results = response;
-        console.log("The Results");
-        console.log(results);
        
         var fifaCodes = ["KOR", "GER", "SRB", "CRC", "POL", "SEN", "PAN", "TUN", "FRA", "ARG", "URU", "POR", "BRA", "MEX", "BEL", "JPN", "COL",
                         "ENG", "SWE", "SUI", "ESP", "RUS", "CRO", "KSA", "EGY", "MAR", "IRN", "AUS", "PER", "ISL", "NGA", "DEN"];
@@ -59,7 +51,7 @@ function getTeamStuff() {
             }
         };
 //////////////////////build out the page//////////////////////////
-        $("body").css("background-image", "url('assets/images/flags/" + yourTeam + ".mp4')");
+        $("body").css("background-image", "url('assets/images/flags/" + yourTeam + ".jpg')");
         $(".header").append("<div>" + yourTeam + "</div>");
         
         //push out the api information (PAMP IT)
