@@ -1,23 +1,83 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <title>Your Team</title>
+    <title>World Cup 2018</title>
+    <!--Resetting our CSS-->
     <link rel= "stylesheet" href = "assets/css/reset.css" type = "text/css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!--Adding our Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/WorldCupLogo.png"/>
+    <!--Loading Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!--Loading our Stylesheet-->
     <link rel = "stylesheet" href="assets/css/style.css" type= "text/css"/>
     <!--Loading our jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Moment for Yesterday-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!--Loading our firebase.js-->
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <!--Loading our parallax.js-->
     <script src="assets/javascript/parallax.min.js"></script>
-</head>
-
-<body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--Loading Popper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Need this for the dropdown menu-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="assets/javascript/entertainmentscript.js"></script>
+    <style>
+        .carousel-inner > .item > img {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+//Team Score
+function getTeamStuff() {
+    var queryURL = "https://worldcup.sfg.io/matches/country?fifa_code=";
+    var queryStringValue = getQueryVariable("TeamName");
+    console.log("Query String Is:")
+    console.log(queryStringValue);
+    
+    //get API with Team
+    $.ajax({
+        url: queryURL + queryStringValue,
+        method: "GET"
+        }).then(function(response) {
+        var results = response;
+        console.log("The Results");
+        console.log(results);
+       
+        var fifaCodes = ["KOR", "GER", "SRB", "CRC", "POL", "SEN", "PAN", "TUN", "FRA", "ARG", "URU", "POR", "BRA", "MEX", "BEL", "JPN", "COL",
+                        "ENG", "SWE", "SUI", "ESP", "RUS", "CRO", "KSA", "EGY", "MAR", "IRN", "AUS", "PER", "ISL", "NGA", "DEN"]
+        $(".header").append(queryStringValue);
+    });
+}
+
+//Grabbing our Team Name from the URL
+function getQueryVariable(varName) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == varName) {
+        return decodeURIComponent(pair[1]);
+        }
+    }
+return "";
+}
+
+//if our call fails
+function gotFailure(data){
+	console.log(JSON.stringify(data));
+}
+
+//after the page has loaded
+$(document).ready(function(){
+    getTeamStuff();
+});
+
+</script>
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent" id="nav1">
         <a class="navbar-brand" href="index.html">WORLD CUP 2018</a>
@@ -27,9 +87,8 @@
     </nav>
 
     <header>
-        <h1>Your Team</h1>
+        <h1 class="header"></h1>
     </header>
-    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="#" data-natural-width="2553" data-natural-height="1114" style="height: 500px;"></div>
         <section>
             <div class="placeholder">
                 <p>Placeholder Team</p>
@@ -51,8 +110,7 @@
     <footer>
         <h1>Footer</h1>
     </footer>
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
-    <script src="assets/javascript/script.js"></script>
+
 </body>
 
 </html>

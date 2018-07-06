@@ -1,3 +1,15 @@
+    // CODE FOR AUSTRALIA BUTTON
+    //$(".team-buttons").append("<button class='btn btn-primary' type='button' onclick='gotTeamName(\"" + teamName + "\")'>Australia</button>");
+    $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick='gotTeamName()'>Australia</button>");
+
+    function gotTeamName(teamName) {	
+    var teamName = "AUS";
+        //window.open('https://teampage.html?TeamName=' + encodeURIComponent(teamName))
+        window.open('teampage.html?TeamName=' + encodeURIComponent(teamName))        
+        // gotTeamName(results[i].country.Australia);
+        // console.log(gotTeamName);
+    }	
+
 //Current Score
 function loadScore() {
     var queryURL = "https://worldcup.sfg.io/matches/today";
@@ -140,11 +152,9 @@ function teamList() {
         method: "GET"
     })
     .then(function(response) {
-        //console.log(queryURL4);
-        //console.log(response);
         var results = response;
-
-   
+        console.log("Team List");
+        console.log(results);
 
         for (var i=0; i< results.length; i++){
             //console.log(results[i].country);
@@ -167,25 +177,9 @@ function teamList() {
             $(newList).on("click", function(event) {
                     //teamTitle.append("<h1>" + results[i].country + "</h1>");
                     teamInfo.append(teamStat);
-                    $("#placeholder").style("height: auto;")
-    
-                
-               
-    
-    
+                    $("#placeholder").style("height: auto;")                
             });
-
-            function gotTeamName(teamName) {	
-                window.open('https://teampage.html?TeamName=' + encodeURIComponent(teamName))
-                gotTeamName(results[i].country.Australia);
-                console.log(gotTeamName);
-            }	
-            
         }
-        
-
-        // CODE FOR AUSTRALIA BUTTON
-
         // var ausButton = $("#Australia");
         // ausButton = $("<a href= teampage.html></a>")
         // $(ausButton).on("click", function(event){
