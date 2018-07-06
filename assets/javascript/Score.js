@@ -10,6 +10,26 @@
         // console.log(gotTeamName);
     }	
 
+
+    var funcs = [];
+
+    function createfunc(i) {
+        return function() { console.log("My value: " + i); };
+    }
+    
+    for (var i = 0; i < 3; i++) {
+        funcs[i] = createfunc(i);
+        console.log("This is I");
+        console.log(funcs[i]);                    // and now let's run each one to see
+
+
+    }
+    
+    for (var j = 0; j < 3; j++) {
+        funcs[j]();    
+        console.log(funcs[j]);                    // and now let's run each one to see
+    }
+
 //Current Score
 function loadScore() {
     var queryURL = "https://worldcup.sfg.io/matches/today";
@@ -162,7 +182,7 @@ function teamList() {
             var newList = $("<li><a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='#follow-teams'>"+ results[i].country + "</a></li>");
             
             countryList.append(newList);
-   
+            console.log(results[i].country);
 
             var fifaCode = results[i].fifa_code;
             var fifaCodePound = "#" + fifaCode;
@@ -174,7 +194,7 @@ function teamList() {
                 + "</span><br><span> Losses:" + results[i].losses + "</span>"
             );
 
-            $(newList).on("click", function(event) {
+            $(".teamselect").on("click", function(event) {
                     //teamTitle.append("<h1>" + results[i].country + "</h1>");
                     teamInfo.append(teamStat);
                     $("#placeholder").style("height: auto;")                
