@@ -1,14 +1,34 @@
     // CODE FOR AUSTRALIA BUTTON
     //$(".team-buttons").append("<button class='btn btn-primary' type='button' onclick='gotTeamName(\"" + teamName + "\")'>Australia</button>");
-    $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick='gotTeamName()'>Australia</button>");
+    // $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick='gotTeamName()'>Australia</button>");
 
-    function gotTeamName(teamName) {	
-    var teamName = "AUS";
-        //window.open('https://teampage.html?TeamName=' + encodeURIComponent(teamName))
-        window.open('teampage.html?TeamName=' + encodeURIComponent(teamName))        
-        // gotTeamName(results[i].country.Australia);
-        // console.log(gotTeamName);
-    }	
+    // function gotTeamName(teamName) {	
+    // var teamName = "AUS";
+    //     //window.open('https://teampage.html?TeamName=' + encodeURIComponent(teamName))
+    //     window.open('teampage.html?TeamName=' + encodeURIComponent(teamName))        
+    //     // gotTeamName(results[i].country.Australia);
+    //     // console.log(gotTeamName);
+    // }	
+
+
+    var funcs = [];
+
+    function createfunc(i) {
+        return function() { console.log("My value: " + i); };
+    }
+    
+    for (var i = 0; i < 3; i++) {
+        funcs[i] = createfunc(i);
+        console.log("This is I");
+        console.log(funcs[i]);                    // and now let's run each one to see
+
+
+    }
+    
+    for (var j = 0; j < 3; j++) {
+        funcs[j]();    
+        console.log(funcs[j]);                    // and now let's run each one to see
+    }
 
 //Current Score
 function loadScore() {
@@ -158,37 +178,66 @@ function teamList() {
 
         for (var i=0; i< results.length; i++){
             //console.log(results[i].country);
-            var countryList = $("#your-team");
-            var newList = $("<li><a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='#follow-teams'>"+ results[i].country + "</a></li>");
-            
-            countryList.append(newList);
-   
 
-            var fifaCode = results[i].fifa_code;
-            var fifaCodePound = "#" + fifaCode;
-            // console.log(fifaCodePound);
-            var teamInfo = $("#teaminfo");
-            var teamTitle = $("#teampagetitle");
-            var teamStat = $(
-                "<button>" + results[i].country + "</button> <span> Wins: " + results[i].wins 
-                + "</span><br><span> Losses:" + results[i].losses + "</span>"
-            );
 
-            $(newList).on("click", function(event) {
-                    //teamTitle.append("<h1>" + results[i].country + "</h1>");
-                    teamInfo.append(teamStat);
-                    $("#placeholder").style("height: auto;")                
-            });
         }
-        // var ausButton = $("#Australia");
-        // ausButton = $("<a href= teampage.html></a>")
-        // $(ausButton).on("click", function(event){
+
+            for(var j=0; j<results.length; j++){
+
+
+                var codeNums = results[j].fifa_code;
+                var countries = results[j].country;
+                // console.log("test test tes test test");
+                // console.log(codeNums);
+          
+                var countryList = $("#your-team");
+                
+                var button = $("<button>");
+                button.addClass("btn btn-primary py-2 mx-2");
+               button.addClass(results[j].country);
+                button.text(results[j].country);
+                $(".team-buttons").append(button);
+
+                $(button).on("click", function(){
+
+                    window.location = 'teampage.html?TeamName=' + $(results[j].country);
+                    console.log(button);
+
+                });
+
+                
+            // var button =  $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick= location.href = teampage.html?TeamName="+codeNums+">"+countries+"</button>"); 
+            // $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick= 'gotTeamName("+codeNums+")'>"+countries+"</button>"); 
+              
+            //    $(".team-buttons").on("click",function(){
+
+                
+            //      gotTeamName(codeNums);  
+            //      if(codeNums === "AUS"){
+            //         window.location = 'teampage.html?TeamName=AUS';
+            //      }
+                 
+                 
+                
+            //     });
+                // console.log(results[j].country);
+                // console.log(results[j].fifa_code);
+            
+               
+                
+              
+            }
+
            
+             function gotTeamName() {	
+              
+              
+                window.open('teampage.html?TeamName=' + encodeURIComponent());        
+                //gotTeamName(results[i].country.Australia);
+                // console.log(gotTeamName);
+            }	
 
-
-        // });
         
-
     });
 }
 
