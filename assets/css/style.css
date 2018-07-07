@@ -13,9 +13,10 @@ iframe {
     min-width: 1230px;
 }
 
-body{
-    font-family: "Dusha V5", sans-serif;
-}
+
+
+
+
 
 .header {
     color: #444;
@@ -31,6 +32,8 @@ header, footer {
     font-size: 3em;
     vertical-align: baseline;
 }
+
+.backgro
 
 footer {
     height:75px;
