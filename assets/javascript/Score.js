@@ -178,37 +178,15 @@ function teamList() {
 
         for (var i=0; i< results.length; i++){
             //console.log(results[i].country);
-            var countryList = $("#your-team");
-            var newList = $("<li><a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='#follow-teams'>"+ results[i].country + "</a></li>");
+
+            for(var j=0; j<results.length; j++){
+                var countryList = $("#your-team");
+                // var newList = $("<li><a class='dropdown-item teamselect' id = '" + results[i].fifa_code + "' href='#follow-teams'>"+ results[i].country + "</a></li>");
+                $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick='gotTeamName("+results[j].fifa_code+")'>"+results[j].country+"</button>"); 
             
-            countryList.append(newList);
-            console.log(results[i].country);
-
-            var fifaCode = results[i].fifa_code;
-            var fifaCodePound = "#" + fifaCode;
-            // console.log(fifaCodePound);
-            var teamInfo = $("#teaminfo");
-            var teamTitle = $("#teampagetitle");
-            var teamStat = $(
-                "<button>" + results[i].country + "</button> <span> Wins: " + results[i].wins 
-                + "</span><br><span> Losses:" + results[i].losses + "</span>"
-            );
-
-            $(".teamselect").on("click", function(event) {
-                    //teamTitle.append("<h1>" + results[i].country + "</h1>");
-                    teamInfo.append(teamStat);
-                    $("#placeholder").style("height: auto;")                
-            });
+              
+            }
         }
-        // var ausButton = $("#Australia");
-        // ausButton = $("<a href= teampage.html></a>")
-        // $(ausButton).on("click", function(event){
-           
-
-
-        // });
-        
-
     });
 }
 
