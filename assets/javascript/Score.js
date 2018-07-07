@@ -179,69 +179,10 @@ function teamList() {
     for(var j=0; j<results.length; j++){
 
 
-<<<<<<< HEAD
-        }
-
-            for(var j=0; j<results.length; j++){
-
-
-                var codeNums = results[j].fifa_code;
-                var countries = results[j].country;
-                // console.log("test test tes test test");
-                // console.log(codeNums);
-          
-                var countryList = $("#your-team");
-                
-                var button = $("<button>");
-                button.addClass("btn btn-primary py-2 ");
-               button.addClass(results[j].country);
-                button.text(results[j].country);
-                $(".team-buttons").append(button);
-
-                $(button).on("click", function(){
-
-                    window.location = 'teampage.html?TeamName=' + $(results[j].country);
-                    console.log(button);
-
-                });
-
-                
-            // var button =  $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick= location.href = teampage.html?TeamName="+codeNums+">"+countries+"</button>"); 
-            // $(".team-buttons").append("<button class='btn btn-primary' type='button' onclick= 'gotTeamName("+codeNums+")'>"+countries+"</button>"); 
-              
-            //    $(".team-buttons").on("click",function(){
-
-                
-            //      gotTeamName(codeNums);  
-            //      if(codeNums === "AUS"){
-            //         window.location = 'teampage.html?TeamName=AUS';
-            //      }
-                 
-                 
-                
-            //     });
-                // console.log(results[j].country);
-                // console.log(results[j].fifa_code);
-            
-               
-                
-              
-            }
-
-           
-             function gotTeamName() {	
-              
-              
-                window.open('teampage.html?TeamName=' + encodeURIComponent());        
-                //gotTeamName(results[i].country.Australia);
-                // console.log(gotTeamName);
-            }	
-=======
         var codeNums = results[j].fifa_code;
         var countries = results[j].country;
         // console.log("test test tes test test");
         // console.log(codeNums);
->>>>>>> 6dc4e1a8be800c6c2919a04a40040fc7cb7b9b86
 
         var countryList = $("#your-team");
         
