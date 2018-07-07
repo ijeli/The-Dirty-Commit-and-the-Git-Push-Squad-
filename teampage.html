@@ -68,12 +68,12 @@ function getTeamStuff() {
             var teamInfo = $(".team-info");
             var gameDiv = $("<div class='game-header' id=game-" + gameCount +">Game " + gameCount + ": " + results[i].away_team_country + 
                 " vs. " + results[i].home_team_country + "</div></br>");
-            $(gameDiv).append("<p class='game-text'><span>Winner: " + results[i].winner + "</span><span> Venue: " + results[i].venue + "</span><span> Attendance: " + results[i].attendance + 
-            "</span><span> Date: " + moment(convertSliced).format("YYYY-MM-DD") + "</span></p>")
+            $(gameDiv).append("<p class='game-text'><span>Winner: " + results[i].winner +"</span><span>"+"Final Score : "+ ""+results[i].home_team_country +"  "+ results[i].home_team.goals+" || " +results[i].away_team_country+"   " +results[i].away_team.goals+ "</span><span> Venue: " + results[i].venue + "</span><span> Attendance: " + results[i].attendance + 
+            "<br></span><span> Date: " + moment(convertSliced).format("YYYY-MM-DD") + "</span></p>")
             //away team stats
             $(gameDiv).append("<p class='game-text'><u>" + results[i].away_team_country + " Stats:</u><br><span>Attempts on goal: " + results[i].away_team_statistics.attempts_on_goal + 
             "</span><span>Blocked: " + results[i].away_team_statistics.blocked + "</span><span>Corners: " + results[i].away_team_statistics.corners + "</span>" +
-            "<span>Ball Possession: " + results[i].away_team_statistics.ball_possession + "</span><span>Distance Covered: " + results[i].away_team_statistics.distance_covered + "</span></p>");
+            "<span>Ball Possession: " + results[i].away_team_statistics.ball_possession+"%"  + "</span><span>Distance Covered: " + results[i].away_team_statistics.distance_covered+"km" + "</span></p>");
             $(gameDiv).append("<p class='game-text'>Starting 11: " + results[i].away_team_statistics.starting_eleven[0].name + " (" + results[i].away_team_statistics.starting_eleven[0].shirt_number + "),  "
             + results[i].away_team_statistics.starting_eleven[1].name + " (" + results[i].away_team_statistics.starting_eleven[1].shirt_number + "),  " 
             + results[i].away_team_statistics.starting_eleven[2].name + " (" + results[i].away_team_statistics.starting_eleven[2].shirt_number + "),  " 
@@ -84,11 +84,11 @@ function getTeamStuff() {
             + results[i].away_team_statistics.starting_eleven[7].name + " (" + results[i].away_team_statistics.starting_eleven[7].shirt_number + "),  " 
             + results[i].away_team_statistics.starting_eleven[8].name + " (" + results[i].away_team_statistics.starting_eleven[8].shirt_number + "),  " 
             + results[i].away_team_statistics.starting_eleven[9].name + " (" + results[i].away_team_statistics.starting_eleven[9].shirt_number + "),  "
-            + results[i].away_team_statistics.starting_eleven[10].name + " (" + results[i].away_team_statistics.starting_eleven[10].shirt_number + "</p>");
+            + results[i].away_team_statistics.starting_eleven[10].name + " (" + results[i].away_team_statistics.starting_eleven[10].shirt_number +")"+ "</p>");
             //home team stats
             $(gameDiv).append("<p class='game-text'><u>" + results[i].home_team_country + " Stats:</u><br><span>Attempts on goal: " + results[i].home_team_statistics.attempts_on_goal + 
             "</span><span>Blocked: " + results[i].home_team_statistics.blocked + "</span><span>Corners: " + results[i].home_team_statistics.corners + "</span>" +
-            "<span>Ball Possession: " + results[i].home_team_statistics.ball_possession + "</span><span>Distance Covered: " + results[i].home_team_statistics.distance_covered + "</span></p>");
+            "<span>Ball Possession: " + results[i].home_team_statistics.ball_possession+"%" + "</span><span>Distance Covered: " + results[i].home_team_statistics.distance_covered+"km" + "</span></p>");
             $(gameDiv).append("<p class='game-text'>Starting 11: " + results[i].home_team_statistics.starting_eleven[0].name + " (" + results[i].home_team_statistics.starting_eleven[0].shirt_number + "),  "
             + results[i].home_team_statistics.starting_eleven[1].name + " (" + results[i].home_team_statistics.starting_eleven[1].shirt_number + "),  " 
             + results[i].home_team_statistics.starting_eleven[2].name + " (" + results[i].home_team_statistics.starting_eleven[2].shirt_number + "),  " 
@@ -99,7 +99,7 @@ function getTeamStuff() {
             + results[i].home_team_statistics.starting_eleven[7].name + " (" + results[i].home_team_statistics.starting_eleven[7].shirt_number + "),  " 
             + results[i].home_team_statistics.starting_eleven[8].name + " (" + results[i].home_team_statistics.starting_eleven[8].shirt_number + "),  " 
             + results[i].home_team_statistics.starting_eleven[9].name + " (" + results[i].home_team_statistics.starting_eleven[9].shirt_number + "),  "
-            + results[i].home_team_statistics.starting_eleven[10].name + " (" + results[i].home_team_statistics.starting_eleven[10].shirt_number + "</p>");
+            + results[i].home_team_statistics.starting_eleven[10].name + " (" + results[i].home_team_statistics.starting_eleven[10].shirt_number +")" +"</p>");
                        
             
             $(teamInfo).append(gameDiv);
