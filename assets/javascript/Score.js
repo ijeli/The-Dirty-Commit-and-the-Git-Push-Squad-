@@ -193,7 +193,7 @@ function teamList() {
                 var countryList = $("#your-team");
                 
                 var button = $("<button>");
-                button.addClass("btn btn-primary py-2 mx-2");
+                button.addClass("btn btn-primary py-2 ");
                button.addClass(results[j].country);
                 button.text(results[j].country);
                 $(".team-buttons").append(button);
