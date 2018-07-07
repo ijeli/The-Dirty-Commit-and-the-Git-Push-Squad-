@@ -3,6 +3,10 @@
     src: url(worldcupfont.ttf);
 }
 
+body {
+    font-family: "Dusha V5";
+}
+
 iframe {
     border: 1px solid skyblue;
     border-bottom: 19px solid skyblue;
@@ -12,11 +16,6 @@ iframe {
 .container {
     min-width: 1230px;
 }
-
-
-
-
-
 
 .header {
     color: #444;
@@ -32,8 +31,6 @@ header, footer {
     font-size: 3em;
     vertical-align: baseline;
 }
-
-.backgro
 
 footer {
     height:75px;
@@ -53,13 +50,27 @@ header h1 {
     font-size: 3em;
 }
 
+.team-buttons button {
+    margin: 8px;
+    transition: all .2s ease-in-out;
+    border: 3px solid skyblue;
+    font-size: 1.3em;
+}
+
+.team-buttons button:hover {
+    background-color:red;
+    border: 3px solid darkred;
+    transform: scale(1.05);
+}
+
 #help {
     background: transparent;
 }
 
 #follow-teams {
-    min-height: 400px;
-    padding:20px;
+    min-height: 475px;
+    padding: 20px;
+    background-color: white;
 }
 
 #entertainment{
@@ -126,7 +137,6 @@ td, h1, th {
     border-top: 11px solid red;
     border-bottom: 11px solid red;
 }
-
 
 .cantseeme {
     color: white;
